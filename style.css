@@ -10,44 +10,53 @@
   box-sizing: border-box;
 
 }
-
-
 @media (max-width: 768px) {
-  .navbar-brand {
-      font-size: 14px;
+  .container, .home-main, .navbar, .navbar-collapse {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
       text-align: center;
   }
-
+}
+@media (max-width: 768px) {
   .custom-button {
-      width: 90%;
-      margin: 10px auto; /* Center buttons and add some margin */
+      width: 100%;
+      max-width: 300px; /* Limits button width */
+      display: block;
+      margin: 10px auto;
   }
-
-  .home-main h1 img {
-      width: 80%;
-      height: auto;
-  }
-
-  .scroll_letters {
-      font-size: 14px; /* Adjust marquee text size for mobile */
-  }
-
-  .navbar-toggler {
-      margin: 0 auto; /* Center the toggler button */
+}
+@media (max-width: 768px) {
+  .navbar-brand {
+      width: 100%;
+      text-align: center;
+      display: block;
   }
 
   .navbar-collapse {
-      text-align: center; /* Center the collapsed menu items */
+      justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .scroll_letters {
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+  }
+
+  marquee {
+      width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .home-main h1 img {
+      width: 100%;
+      max-width: 300px; /* Adjust image width */
+      height: auto;
   }
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar-toggler {
-  border-color: rgb(32, 26, 143);
-} 
 
 body {
   height: auto;
@@ -68,6 +77,7 @@ body {
 nav {
   border-bottom: solid #fff 0.5px;
   background-color: transparent;
+
 }
 
 .navbar-brand {
@@ -75,45 +85,6 @@ nav {
     text-align: center;
 }
 
-.custom-button {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.custom-button:hover {
-  background-color: #0056b3;
-}
-
-.home-main {
-  padding: 20px;
-  text-align: center;
-}
-
-.home-main h5 {
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.custom-heading {
-  font-size: 2rem;
-  color: #fff;
-  margin-top: 20px;
-}
-
-.scroll_letters {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-top: 20px;
-}
 .dept-text {
     font-family: 'Georgia', serif;
     font-size: 1.8rem;

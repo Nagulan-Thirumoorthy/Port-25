@@ -10,18 +10,34 @@
   box-sizing: border-box;
 
 }
+
+
 @media (max-width: 768px) {
   .navbar-brand {
       font-size: 14px;
+      text-align: center;
   }
 
   .custom-button {
       width: 90%;
+      margin: 10px auto; /* Center buttons and add some margin */
   }
 
   .home-main h1 img {
       width: 80%;
       height: auto;
+  }
+
+  .scroll_letters {
+      font-size: 14px; /* Adjust marquee text size for mobile */
+  }
+
+  .navbar-toggler {
+      margin: 0 auto; /* Center the toggler button */
+  }
+
+  .navbar-collapse {
+      text-align: center; /* Center the collapsed menu items */
   }
 }
 
@@ -52,7 +68,6 @@ body {
 nav {
   border-bottom: solid #fff 0.5px;
   background-color: transparent;
-
 }
 
 .navbar-brand {
@@ -60,6 +75,45 @@ nav {
     text-align: center;
 }
 
+.custom-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+}
+
+.home-main {
+  padding: 20px;
+  text-align: center;
+}
+
+.home-main h5 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.custom-heading {
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.scroll_letters {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 20px;
+}
 .dept-text {
     font-family: 'Georgia', serif;
     font-size: 1.8rem;

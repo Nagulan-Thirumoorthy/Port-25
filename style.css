@@ -11,52 +11,27 @@
 
 }
 @media (max-width: 768px) {
-  .container, .home-main, .navbar, .navbar-collapse {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-  }
-}
-@media (max-width: 768px) {
-  .custom-button {
-      width: 100%;
-      max-width: 300px; /* Limits button width */
-      display: block;
-      margin: 10px auto;
-  }
-}
-@media (max-width: 768px) {
   .navbar-brand {
-      width: 100%;
-      text-align: center;
-      display: block;
-  }
-
-  .navbar-collapse {
-      justify-content: center;
-  }
-}
-@media (max-width: 768px) {
-  .scroll_letters {
-      width: 100%;
-      text-align: center;
       font-size: 14px;
   }
 
-  marquee {
-      width: 100%;
+  .custom-button {
+      width: 90%;
   }
-}
-@media (max-width: 768px) {
+
   .home-main h1 img {
-      width: 100%;
-      max-width: 300px; /* Adjust image width */
+      width: 80%;
       height: auto;
   }
 }
 
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+  border-color: rgb(32, 26, 143);
+} 
 
 body {
   height: auto;

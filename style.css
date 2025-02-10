@@ -89,102 +89,18 @@ img {
   object-fit: cover;
 }
 .container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
-}
-
-.container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.home-main {
-  width: 100%;
-  height: 100%;
-  margin-top: 4%;
-}
-
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -9999;
-}
-.cards-wrapper {
-  width: 100%;
-  height: auto;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 2rem;
-  padding: 2rem;
-  margin: 0 auto;
-}
-
-.card {
-  width: 100%;
-  height: auto;
-  font-size: 1.5em;
-  color: #40128B;
-  border-radius: 1em;
-  padding: 1em;
-  display: flex;
-  align-items: flex-end;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 0 5em -1em black;
-  transition: all, var(--transition-time);
-  position: relative;
-  overflow: hidden;
-  border: 10px solid #ccc;
-  text-decoration: none;
-}
-.timeline {
-  width: 100%;
-  color: #fff;
-  padding: 30px 20px;
-  margin-left: 0;
-}
-#eventsmain {
+  aspect-ratio: 16 / 9;
   width: 100%;
 }
-
-#maincontent {
-  width: 100%;
+.container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
-#description .wrapper {
-  width: 100%;
-  margin-bottom: 40px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #333;
-  font-family: sans-serif;
+html {
+  font-size: clamp(14px, 2vw, 18px);
 }
-#profile-grid {
-  width: 100%;
-  overflow: auto;
-  white-space: normal;
-  text-align-last: center;
-}
+
 .port-text {
     font-family:"Poppins-Italic.tff";
     font-size: 2rem;

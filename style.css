@@ -79,28 +79,6 @@ nav {
     font-style: italic;
     color: white;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-.container {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-html {
-  font-size: clamp(14px, 2vw, 18px);
-}
-
 .port-text {
     font-family:"Poppins-Italic.tff";
     font-size: 2rem;

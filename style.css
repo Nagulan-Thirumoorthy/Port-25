@@ -11,6 +11,12 @@
 
 }
 @media (max-width: 768px) {
+  header {
+      text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
   .navbar-brand {
       font-size: 14px;
   }
@@ -61,21 +67,21 @@ nav {
 }
 
 .dept-text {
-    font-family: 'Georgia', serif;
+    font-family:"Poppins-Italic.tff";
     font-size: 1.8rem;
     color: #004080;
     font-weight: bold;
 }
 
 .presents-text {
-    font-family: 'Great Vibes', cursive;
+    font-family:"Poppins-Italic.tff";
     font-size: 1.0rem;
     font-style: italic;
     color: white;
 }
 
 .port-text {
-    font-family: 'Georgia', serif;
+    font-family:"Poppins-Italic.tff";
     font-size: 2rem;
     color:#fff;
     font-weight: bold;
@@ -87,7 +93,7 @@ nav {
 .custom-button {
   background-color:#e1e1e1; 
   color:#071f2a; 
-  font-family: 'Poppins', sans-serif; 
+  font-family: "Poppins-Italic.tff"; 
   font-size: 1rem; 
   margin-top: 30px;
   font-weight: bold;

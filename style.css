@@ -383,6 +383,8 @@ box-shadow: 5px 5px 10px 2px orangered, -5px -5px 10px 2px orangered;
     overflow: hidden;
     white-space: nowrap; 
     text-overflow: ellipsis;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 }
@@ -680,6 +682,41 @@ hr {
     text-align: center;
   }
 }
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.card-grid-space {
+  width: 80%; 
+  max-width: 300px; 
+  margin: 0 auto; 
+}
+.cards-wrapper {
+  display: flex; 
+  justify-content: center; 
+  gap: 20px; 
+  
+}
+.card {
+  width: 100%; 
+  height: 300px; 
+  background-size: cover;
+  background-position: center; 
+  padding: 1rem; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.card h1 {
+  font-size: 1.5rem; 
+  margin-bottom: 0.5rem; 
+}
+
+.card .date {
+  font-size: 1rem;
+}
 
 @media screen and (max-width: 500px) {
   .cards-wrapper {
@@ -807,6 +844,7 @@ hr {
 #eventsmain{
   width:750px;
   
+  
 }
 
 #maincontent{
@@ -907,7 +945,8 @@ input[type="submit"]
 
 
 .profile-desc {
-  overflow: hidden;
+  text-align: justify;
+    text-justify: inter-word;
   /* white-space: nowrap; 
   text-overflow: ellipsis; or any other desired value */
 }

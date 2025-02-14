@@ -404,8 +404,12 @@
                             <td class="table-coord-num-1">81480 86780</td> 
                           </tr>
                           <tr>
-                            <td class="table-coord-name-2">YAZH ENIYAN T</td>
-                            <td class="table-coord-num-2">81480 10338</td> 
+                            <td class="table-coord-name-2">DARSHAN AR</td>
+                            <td class="table-coord-num-2">95664 02458</td> 
+                          </tr>
+                          <tr>
+                            <td class="table-coord-name-3">YAZH ENIYAN T</td>
+                            <td class="table-coord-num-3">81480 10338</td> 
                           </tr>
                           
                         </tbody>
@@ -452,10 +456,13 @@
                             <td class="table-coord-num-1">90254 93374</td> 
                           </tr>
                           <tr>
-                            <td class="table-coord-name-2">OHM PRASATH K M</td>
-                            <td class="table-coord-num-2">63791 07687</td> 
+                            <td class="table-coord-name-2">MADHUMITHA</td>
+                            <td class="table-coord-num-2"></td> 
                           </tr>
-                          
+                          <tr>
+                            <td class="table-coord-name-3">OHM PRASATH K M</td>
+                            <td class="table-coord-num-3">63791 07687</td> 
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -498,8 +505,12 @@
                             <td class="table-coord-num-1">63829 37975</td> 
                           </tr>
                           <tr>
-                            <td class="table-coord-name-2">GOKULNATH R</td>
-                            <td class="table-coord-num-2">93452 78572</td> 
+                            <td class="table-coord-name-2">MANISHANKAR</td>
+                            <td class="table-coord-num-2">63829 37975</td> 
+                          </tr>
+                          <tr>
+                            <td class="table-coord-name-3">GOKULNATH R</td>
+                            <td class="table-coord-num-3">93452 78572</td> 
                           </tr>
                           
                         </tbody>
@@ -732,6 +743,10 @@
                   <td class="modal-table-name-2"></td>
                   <td class="modal-table-num-2"></td> 
                 </tr>
+                <tr>
+                  <td class="modal-table-name-3"></td>
+                  <td class="modal-table-num-3"></td> 
+                </tr>
                 
 
                 
@@ -867,57 +882,82 @@
 
   </script>
   <script>
-    document.querySelectorAll('.thumb').forEach(function(thumb) {
-      thumb.addEventListener('click', function(event) {
-          event.preventDefault();
-          var content = document.querySelector('.modal-body');
-          var title = this.getAttribute("title");
-          var description = this.parentNode.parentNode.querySelector('.profile-desc').textContent;
-          var imageSrc = this.querySelector('img').src;
-          var coordinatorName1 = this.parentNode.parentNode.querySelector('.table-coord-name-1').textContent;
-          var coordinatorNum1 = this.parentNode.parentNode.querySelector('.table-coord-num-1').textContent;
-         
-          var coordinatorName2 = this.parentNode.parentNode.querySelector('.table-coord-name-2').textContent;
-          var coordinatorNum2 = this.parentNode.parentNode.querySelector('.table-coord-num-2').textContent;
-        
-          
-          document.querySelector('.modal-title').innerHTML = title;
-          document.querySelector('.modal-desc').innerHTML = description;
-          document.querySelector('.modal-image').src = imageSrc;
-          document.querySelector('.modal-table-name-1').innerHTML = coordinatorName1;
-          document.querySelector('.modal-table-num-1').innerHTML = coordinatorNum1;
-
-          document.querySelector('.modal-table-name-2').innerHTML = coordinatorName2;
-          document.querySelector('.modal-table-num-2').innerHTML = coordinatorNum2;
-
-          var modal = document.querySelector(".modal-profile");
-          modal.classList.add('show');
-          modal.style.display = 'block';
-      });
-  });
-  
-  
-  document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     // Display loading instructions
-    document.getElementById("loading-instructions").style.display = "block";
+    var loadingInstructions = document.getElementById("loading-instructions");
+    if (loadingInstructions) {
+        loadingInstructions.style.display = "block";
+        setTimeout(function () {
+            loadingInstructions.style.display = "none";
+        }, 800);
+    }
 
-    // Simulate a delay (you can replace this with your actual loading process)
-    setTimeout(function () {
-      // Hide loading instructions after the page has loaded
-      document.getElementById("loading-instructions").style.display = "none";
-    }, 800); // Adjust the delay time as needed
-  });
-  
-  document.querySelector('.modal-profile .close').addEventListener('click', function() {
-      var modal = document.querySelector(".modal-profile");
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-  });
-  document.querySelector('.modal-footer button[data-dismiss="modal"]').addEventListener('click', function() {
+    // Select modal
     var modal = document.querySelector(".modal-profile");
-    modal.classList.remove('show');
-    modal.style.display = 'none';
+
+    // Ensure modal exists before attaching event listeners
+    if (!modal) {
+        console.error("Modal element not found!");
+        return;
+    }
+
+    // Handle thumbnail click
+    document.querySelectorAll('.thumb').forEach(function (thumb) {
+        thumb.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var content = document.querySelector('.modal-body');
+            var title = this.getAttribute("title") || "No Title";
+            var descriptionElement = this.parentNode.parentNode.querySelector('.profile-desc');
+            var imageElement = this.querySelector('img');
+
+            var coordinatorName1 = this.parentNode.parentNode.querySelector('.table-coord-name-1');
+            var coordinatorNum1 = this.parentNode.parentNode.querySelector('.table-coord-num-1');
+
+            var coordinatorName2 = this.parentNode.parentNode.querySelector('.table-coord-name-2');
+            var coordinatorNum2 = this.parentNode.parentNode.querySelector('.table-coord-num-2');
+
+            var coordinatorName3 = this.parentNode.parentNode.querySelector('.table-coord-name-3');
+            var coordinatorNum3 = this.parentNode.parentNode.querySelector('.table-coord-num-3');
+
+            // Check if elements exist before accessing them
+            document.querySelector('.modal-title').innerHTML = title;
+            document.querySelector('.modal-desc').innerHTML = descriptionElement ? descriptionElement.textContent : "No Description";
+            document.querySelector('.modal-image').src = imageElement ? imageElement.src : "";
+
+            document.querySelector('.modal-table-name-1').innerHTML = coordinatorName1 ? coordinatorName1.textContent : "N/A";
+            document.querySelector('.modal-table-num-1').innerHTML = coordinatorNum1 ? coordinatorNum1.textContent : "N/A";
+
+            document.querySelector('.modal-table-name-2').innerHTML = coordinatorName2 ? coordinatorName2.textContent : "N/A";
+            document.querySelector('.modal-table-num-2').innerHTML = coordinatorNum2 ? coordinatorNum2.textContent : "N/A";
+
+            document.querySelector('.modal-table-name-3').innerHTML = coordinatorName3 ? coordinatorName3.textContent : "N/A";
+            document.querySelector('.modal-table-num-3').innerHTML = coordinatorNum3 ? coordinatorNum3.textContent : "N/A";
+
+            modal.classList.add('show');
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close modal when clicking the close button
+    var closeButton = document.querySelector('.modal-profile .close');
+    if (closeButton) {
+        closeButton.addEventListener('click', function () {
+            modal.classList.remove('show');
+            modal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking dismiss button
+    var dismissButton = document.querySelector('.modal-footer button[data-dismiss="modal"]');
+    if (dismissButton) {
+        dismissButton.addEventListener('click', function () {
+            modal.classList.remove('show');
+            modal.style.display = 'none';
+        });
+    }
 });
+
       
   </script>
 

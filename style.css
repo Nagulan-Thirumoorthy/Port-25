@@ -16,7 +16,7 @@
   margin: 5px 0; /* Add spacing between buttons */
   padding: 5px 10px; /* Reduce padding to make buttons smaller */
   background-color: #007bff; /* Blue background */
-  color: white; /* White text */
+  color: rgb(236, 232, 232); /* White text */
   text-decoration: none; /* Remove underline */
   border-radius: 5px; /* Rounded corners */
   font-size: 14px; /* Smaller font size */

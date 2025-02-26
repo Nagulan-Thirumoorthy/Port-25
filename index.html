@@ -242,50 +242,79 @@
     
           </div>
 				
-					<div class="col-sm-4 col-xs-12 profile" >
-				        <div class="panel panel-default">
-				          <div class="panel-thumbnail">
-				          	<a href="#" title="Quantum Computing" class="thumb">
-				          		<img src="quantcomp.png" style="width:195px; height: 195px;">
-				          
-				          </div>
-				          <div class="panel-body" >
-				            <p class="profile-name">Quantum Computing</p>
-				            <p class="profile-desc">
-                      Quantum Computing – Explore the Future of Computing! 🚀✨ 
-                      🔹 Unravel the Quantum World – Discover the power of superposition and entanglement.
-                      🔹 Hands-on Insights – Learn quantum algorithms and their real-world impact.
-                      🔹 Future-Ready Skills – Stay ahead in the revolution of computing!
-                      
-                      Think quantum, compute faster, and shape tomorrow! ⚛🔥
+					<div class="col-sm-4 col-xs-12 profile">
+            <div class="panel panel-default">
+                <div class="panel-thumbnail">
+                    <a href="#" title="Quantum Computing" class="thumb">
+                        <img src="quantcomp.png" style="width:195px; height: 195px;">
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <p class="profile-name">Quantum Computing</p>
+                    <p class="profile-desc">
+                        Quantum Computing – Explore the Future of Computing! 🚀✨
+                        🔹 Unravel the Quantum World – Discover the power of superposition and entanglement. 
+                        🔹 Hands-on Insights – Learn quantum algorithms and their real-world impact. 
+                        🔹 Future-Ready Skills – Stay ahead in the revolution of computing! 
+                        Think quantum, compute faster, and shape tomorrow! ⚛🔥 
+                        <strong>Handled by Dr. Jayakumar Vaithyashankar AP/IT</strong>
+                    </p>
                     
-                      <strong>Handled by Mr. S. David Samuel Azariya AP/IT and Dr . Jayakumar Vaithyashankar AP/IT</p>
-                        
-                      </strong><h1 class="mt-0 d-none">Coordinators List</h1>
-          <div class="table-responsive d-none">
-            <table id="example" style="width:80%" class="table table-striped table-bordered mx-auto">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Designation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="table-coord-name-1">MOHANA PRIYAN</td>
-                  <td class="table-coord-num-1">7418645355</td> 
-                </tr>
-                <tr>
-                  <td class="table-coord-name-2"> </td>
-                  <td class="table-coord-num-2"></td> 
-                </tr> 
-              </tbody>
-            </table>
-          </div>	
-        </a>	          
-      </div>		      
-    </div>			    
-  </div>          
+                    <a href="#" id="knowMoreQuantum" style="color: white; background-color: rgb(12, 11, 11); padding: 5px 10px; text-decoration: none; border-radius: 5px;">Know More</a>
+                    
+                    <div id="popupQuantum" class="popup" style=" color:white;display: none;text-align:justify; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgb(15, 9, 9); padding: 20px; box-shadow: 0px 0px 10px rgba(19, 15, 15, 0.5); z-index: 1000;">
+                        <p>
+                            Workshop aims to explore the fascinating world of quantum mechanics applied to computation. 
+                            This workshop is designed to introduce fundamental concepts of quantum computing, including qubits, 
+                            superposition, entanglement, and quantum gates.
+                        </p>
+                        <p>
+                            Participants will gain insights into how quantum computers differ from classical computers, their potential 
+                            applications in fields like cryptography and optimization, and hands-on experience with quantum programming 
+                            using platforms like IBM Quantum.
+                        </p>
+                        <p>
+                            No prior knowledge of quantum mechanics is required—just curiosity and a willingness to explore the next frontier 
+                            of computing!
+                        </p>
+                        <button id="closePopupQuantum" style="background-color: rgb(234, 229, 229); color: rgb(13, 10, 10); padding: 5px 10px; border: none; border-radius: 5px;">Close</button>
+                    </div>
+                    
+                    <h1 class="mt-0 d-none">Coordinators List</h1>
+                    <div class="table-responsive d-none">
+                        <table id="example" style="width:80%" class="table table-striped table-bordered mx-auto">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-coord-name-1">MOHANA PRIYAN</td>
+                                    <td class="table-coord-num-1">7418645355</td> 
+                                </tr>
+                                <tr>
+                                    <td class="table-coord-name-2"></td>
+                                    <td class="table-coord-num-2"></td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById("knowMoreQuantum").addEventListener("click", function(event) {
+                event.preventDefault();
+                document.getElementById("popupQuantum").style.display = "block";
+            });
+            document.getElementById("closePopupQuantum").addEventListener("click", function() {
+                document.getElementById("popupQuantum").style.display = "none";
+            });
+        </script>
+             
 					<div class="col-sm-4 col-xs-12 profile">
 				        <div class="panel panel-default">
 				          <div class="panel-thumbnail">

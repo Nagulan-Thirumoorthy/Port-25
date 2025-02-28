@@ -107,10 +107,10 @@
         <p>Explore exciting events at our symposium!</p>
         <div class="row justify-content-center">
             <div class="col-md-3 section-box" onclick="startNavigation('registration')">Registration Desk</div>
-            <div class="col-md-3 section-box" onclick="showSubsections('workshops')">Workshops</div>
-            <!--<div class="col-md-3 section-box" onclick="showSubsections('technical')">Technical Events</div>
+            <!--<div class="col-md-3 section-box" onclick="showSubsections('workshops')">Workshops</div>-->
+            <div class="col-md-3 section-box" onclick="showSubsections('technical')">Technical Events</div>
             <div class="col-md-3 section-box" onclick="showSubsections('non-technical')">Non-Technical Events</div>
-            <div class="col-md-3 section-box" onclick="startNavigation('foodSnacks')">Food and Snacks</div>-->
+            <div class="col-md-3 section-box" onclick="startNavigation('foodSnacks')">Food and Snacks</div>
         </div>
     </div>
 
@@ -157,7 +157,7 @@
 
     const imageSets = {
         registration: ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/rd.jpg"],
-        foodSnacks: ["images/security_cabin.jpg", "images/reg1.jpg", "images/reg2.jpg","images/reg3.jpg"],
+        foodSnacks: ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/itgf.png"],
 
         workshops: {
             "Quantum Computing": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1f.jpg","img/itpl.jpg"],
@@ -166,14 +166,14 @@
         },
         technical: {
             "Idea Insights": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/its.jpg", "img/dit2f.jpg"],
-            "Logo Designs": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml.jpg","img/itml2.jpg"],
-            "Escape Odyssey": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1f.jpg","img/itpl.jpg"],
-            "Sync and Solve": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml3.jpg","img/itml4.jpg"]
+            "Logo Designs": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1f.jpg","img/itpl.jpg"],
+            "Escape Odyssey": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml3.jpg","img/itml4.jpg"],
+            "Sync and Solve": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml.jpg","img/itml2.jpg"]
         },
         "non-technical": {
             "Bid-O-Scope": ["img/sc2.jpg","img/entrance2.jpg", "img/ils.jpg", "img/gb2.jpg", "img/gb3.jpg","img/gbgf.jpg", "img/gbs1.jpg", "img/gbs2.jpg","img/itsh.jpg"],
-            "Be the Hero": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg", "img/dit.png","img/it1f.jpg"],
-            "Fun-A-Than": ["images/security_cabin.jpg","images/reg1.jpg", "images/reg2.jpg","images/reg3.jpg","images/413.jpg"]
+            "Be the Hero": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg", "img/dit.png","img/bethehero.jpg"],
+            "Fun-A-Than": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1fl.jpg"]
         },
         
     };
@@ -240,10 +240,12 @@
             "Walk straight past the Green Building.",
             "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located."],
         foodSnacks: [
-            "Enjoy delicious snacks and refreshing beverages during the event.",
-            "Wide variety of food options available for all attendees.",
-            "Freshly prepared meals to keep you energized throughout the day.",
-            "Experience the best local flavors and special treats."
+            "Proceed straight to the security cabin.",
+            "After passing the security cabin, turn right when you see the I Love Sona sign.",
+            "Continue straight along the pavement near the I Love Sona sign.",
+            "Walk straight past the Green Building.",
+            "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located.",
+            "Behind the Registration desk the Food and Snacks are provided"
         ],
         workshops: {
             "Quantum Computing": [
@@ -276,30 +278,65 @@
         },
         technical: {
             "Idea Insights": [
-                "A platform to present your innovative ideas and get feedback.",
-                "Brainstorm new solutions to real-world problems.",
-                "Compete with other participants to showcase creativity.",
-                "Get insights from industry experts and mentors."
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At Second Floor, Take a left corridoor and continue the straight path.",
+                "After a serveral step you can reach the LH521, LH522, LH523, LH524."
             ],
             "Logo Designs": [
-                "Create stunning logo designs with professional guidance.",
-                "Understand the principles of effective branding and design.",
-                "Hands-on session using modern design tools.",
-                "Compete and showcase your creative design skills."
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At First Floor, Take a left corridoor and continue the straight path.",
+                "After a serveral step you can reach the IT Project Lab."
+            ],
+            "Escape Odyssey":[
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Use the straight path after the security cabin, you can see some stone benches.",
+                "By continuing the straight path, enter the Sona Main Building.",
+                "After entering the Main Building, take a right at the corridoor.",
+                "On your right side you can see the IT MAIN LAB."
+            ],
+            "Sync and Solve":[
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Use the straight path after the security cabin, you can see some stone benches.",
+                "By continuing the straight path, enter the Sona Main Building.",
+                "After entering the Main Building, take a leftat the corridoor.",
+                "On your left side you can see the IT MAIN LAB."
             ]
         },
         "non-technical": {
             "Bid-O-Scope": [
-                "Test your strategic thinking in a thrilling bidding competition.",
-                "Outbid competitors while staying within budget.",
-                "Exciting prizes await the top bidders.",
-                "Enhance your decision-making and risk assessment skills."
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Continue the straight path, you can see the Green Building.",
+                "Enter in the Green Building, use the main corridoor.",
+                "Use the staircase available on the right side of the corridoor.",
+                "Use the staircase...",
+                "Reach the first floor using the staircase.",
+                "On your left side you can see the IT SEMINAR HALL."
             ],
             "Be the Hero": [
-                "Step into the shoes of a hero in an engaging storytelling event.",
-                "Make crucial decisions and shape the narrative.",
-                "Compete in an interactive experience with real-time challenges.",
-                "Showcase creativity and problem-solving abilities."
+                "Proceed straight to the security cabin.",
+                "After passing the security cabin, turn right when you see the I Love Sona sign.",
+                "Continue straight along the pavement near the I Love Sona sign.",
+                "Walk straight past the Green Building.",
+                "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located.",
+                "Take the Right cooridoor, where you can find LH503, LH504."
+            ],
+            "Fun-A-Than": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At First floor take the left corridoor, where you can find LH412, LH413."
             ]
         }
     };

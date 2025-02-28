@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Navigation</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Background Animation */
+        body {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            text-align: center;
+            overflow: auto;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Animation */
+        .floating {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatUp 10s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+
+        .container {
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-box, .subsection-box {
+            cursor: pointer;
+            padding: 20px;
+            background: #007bff;
+            color: white;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .section-box:hover, .subsection-box:hover {
+            background: #0056b3;
+        }
+
+        .hidden { display: none; }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+        #imageDescription {
+    margin-top: 10px; /* Increased margin-top to prevent overlap */
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #ddd;
+    text-align: center;
+    display: block; /* Ensures proper positioning below the image */
+}
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<!-- Floating Animated Elements -->
+<div class="floating" style="top: 10%; left: 5%; animation-duration: 8s;"></div>
+<div class="floating" style="top: 40%; left: 70%; animation-duration: 12s;"></div>
+<div class="floating" style="top: 80%; left: 30%; animation-duration: 15s;"></div>
+
+<div class="container">
+    <!-- Main Section Selection -->
+    <div id="section-selection">
+        <h2>Select a Section</h2>
+        <p>Explore exciting events at our symposium!</p>
+        <div class="row justify-content-center">
+            <div class="col-md-3 section-box" onclick="startNavigation('registration')">Registration Desk</div>
+            <!--<div class="col-md-3 section-box" onclick="showSubsections('workshops')">Workshops</div>-->
+            <div class="col-md-3 section-box" onclick="showSubsections('technical')">Technical Events</div>
+            <div class="col-md-3 section-box" onclick="showSubsections('non-technical')">Non-Technical Events</div>
+            <div class="col-md-3 section-box" onclick="startNavigation('foodSnacks')">Food and Snacks</div>
+        </div>
+    </div>
+
+    <!-- Subsections -->
+    <div id="subsection-selection" class="hidden">
+        <h2 id="subsection-title"></h2>
+        <div id="subsection-container" class="row justify-content-center"></div>
+        <div>
+            <button class="btn btn-danger" onclick="goToMainSection()">Back to Sections</button>
+        </div>
+    </div>
+
+    <!-- Image Navigation -->
+    <div id="image-navigation" class="hidden">
+        <div class="img-container">
+            <img id="displayedImage" src="img/logo.png" alt="Event Image" style="width: 800px; height: 580px">
+        </div>
+        <p id="imageDescription">Image description will appear here.</p>
+        <div>
+            <button id="prevBtn" class="btn btn-primary" onclick="prevImage()">Previous</button>
+            <button id="nextBtn" class="btn btn-primary" onclick="nextImage()">Next</button>
+        </div>
+        <div>
+            <button class="btn btn-warning" onclick="goToSubsection()">Back to Subsections</button>
+            <button class="btn btn-danger" onclick="goToMainSection()">Back to Sections</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript & Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80 },
+            "color": { "value": "#66fcf1" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3 },
+            "move": { "speed": 3 }
+        }
+    });
+
+    const imageSets = {
+        registration: ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/rd.jpg"],
+        foodSnacks: ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/itgf.png"],
+
+        workshops: {
+            "Quantum Computing": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1f.jpg","img/itpl.jpg"],
+            "Block Chain": ["img/sc2.jpg","img/entrance2.jpg", "img/ils.jpg", "img/gb2.jpg", "img/gb3.jpg","img/gbgf.jpg", "img/gbs1.jpg", "img/gbs2.jpg","img/itsh.jpg"],
+            "Leveraging LLMS": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml3.jpg","img/itml4.jpg"]
+        },
+        technical: {
+            "Idea Insights": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/its.jpg", "img/dit2f.jpg"],
+            "Logo Designs": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1f.jpg","img/itpl.jpg"],
+            "Escape Odyssey": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml3.jpg","img/itml4.jpg"],
+            "Sync and Solve": ["img/sc2.jpg","img/entrance3.png","img/mb.jpg","img/itml.jpg","img/itml2.jpg"]
+        },
+        "non-technical": {
+            "Bid-O-Scope": ["img/sc2.jpg","img/entrance2.jpg", "img/ils.jpg", "img/gb2.jpg", "img/gb3.jpg","img/gbgf.jpg", "img/gbs1.jpg", "img/gbs2.jpg","img/itsh.jpg"],
+            "Be the Hero": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg", "img/dit.png","img/bethehero.jpg"],
+            "Fun-A-Than": ["img/sc2.jpg", "img/entrance2.jpg", "img/ils.jpg", "img/gb1.jpg","img/dit.png","img/it1fl.jpg"]
+        },
+        
+    };
+
+    let currentSection = "";
+    let currentSubsection = "";
+    let currentIndex = 0;
+
+    function startNavigation(section) {
+        currentSection = section;
+        currentSubsection = "";
+        currentIndex = 0;
+        document.getElementById("section-selection").classList.add("hidden");
+        document.getElementById("image-navigation").classList.remove("hidden");
+        updateImage();
+    }
+
+    function showSubsections(section) {
+        currentSection = section;
+        document.getElementById("section-selection").classList.add("hidden");
+        document.getElementById("subsection-selection").classList.remove("hidden");
+
+        let subsectionContainer = document.getElementById("subsection-container");
+        subsectionContainer.innerHTML = "";
+        
+        document.getElementById("subsection-title").innerText = "Select a " + section.replace("-", " ");
+
+        Object.keys(imageSets[section]).forEach(sub => {
+            let div = document.createElement("div");
+            div.className = "col-md-3 subsection-box";
+            div.innerText = sub;
+            div.onclick = () => startSubsectionNavigation(sub);
+            subsectionContainer.appendChild(div);
+        });
+    }
+
+    function startSubsectionNavigation(subsection) {
+        currentSubsection = subsection;
+        currentIndex = 0;
+        document.getElementById("subsection-selection").classList.add("hidden");
+        document.getElementById("image-navigation").classList.remove("hidden");
+        updateImage();
+    }
+
+    function updateImage() {
+        let images = currentSubsection ? imageSets[currentSection][currentSubsection] : imageSets[currentSection];
+        document.getElementById("displayedImage").src = images[currentIndex];
+
+        document.getElementById("prevBtn").style.display = (currentIndex === 0) ? "none" : "inline-block";
+        document.getElementById("nextBtn").style.display = (currentIndex === images.length - 1) ? "none" : "inline-block";
+    }
+
+    function prevImage() { if (currentIndex > 0) currentIndex--; updateImage(); }
+    function nextImage() { let images = currentSubsection ? imageSets[currentSection][currentSubsection] : imageSets[currentSection]; if (currentIndex < images.length - 1) currentIndex++; updateImage(); }
+    function goToMainSection() { location.reload(); }
+    function goToSubsection() { document.getElementById("image-navigation").classList.add("hidden"); document.getElementById("subsection-selection").classList.remove("hidden"); }
+</script>
+<script>
+    const descriptions = {
+        registration: [
+            "Proceed straight to the security cabin.",
+            "After passing the security cabin, turn right when you see the I Love Sona sign.",
+            "Continue straight along the pavement near the I Love Sona sign.",
+            "Walk straight past the Green Building.",
+            "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located."],
+        foodSnacks: [
+            "Proceed straight to the security cabin.",
+            "After passing the security cabin, turn right when you see the I Love Sona sign.",
+            "Continue straight along the pavement near the I Love Sona sign.",
+            "Walk straight past the Green Building.",
+            "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located.",
+            "Behind the Registration desk the Food and Snacks are provided"
+        ],
+        workshops: {
+            "Quantum Computing": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At First Floor, Take a left corridoor and continue the straight path.",
+                "After a serveral step you can reach the IT Project Lab."
+            ],
+            "Block Chain": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Continue the straight path, you can see the Green Building.",
+                "Enter in the Green Building, use the main corridoor.",
+                "Use the staircase available on the right side of the corridoor.",
+                "Use the staircase...",
+                "Reach the first floor using the staircase.",
+                "On your left side you can see the IT SEMINAR HALL."
+            ],
+            "Leveraging LLMS": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Use the straight path after the security cabin, you can see some stone benches.",
+                "By continuing the straight path, enter the Sona Main Building.",
+                "After entering the Main Building, take a right at the corridoor.",
+                "On your right side you can see the IT MAIN LAB."
+            ]
+        },
+        technical: {
+            "Idea Insights": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At Second Floor, Take a left corridoor and continue the straight path.",
+                "After a serveral step you can reach the LH521, LH522, LH523, LH524."
+            ],
+            "Logo Designs": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At First Floor, Take a left corridoor and continue the straight path.",
+                "After a serveral step you can reach the IT Project Lab."
+            ],
+            "Escape Odyssey":[
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Use the straight path after the security cabin, you can see some stone benches.",
+                "By continuing the straight path, enter the Sona Main Building.",
+                "After entering the Main Building, take a right at the corridoor.",
+                "On your right side you can see the IT MAIN LAB."
+            ],
+            "Sync and Solve":[
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Use the straight path after the security cabin, you can see some stone benches.",
+                "By continuing the straight path, enter the Sona Main Building.",
+                "After entering the Main Building, take a leftat the corridoor.",
+                "On your left side you can see the IT MAIN LAB."
+            ]
+        },
+        "non-technical": {
+            "Bid-O-Scope": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Continue the straight path, you can see the Green Building.",
+                "Enter in the Green Building, use the main corridoor.",
+                "Use the staircase available on the right side of the corridoor.",
+                "Use the staircase...",
+                "Reach the first floor using the staircase.",
+                "On your left side you can see the IT SEMINAR HALL."
+            ],
+            "Be the Hero": [
+                "Proceed straight to the security cabin.",
+                "After passing the security cabin, turn right when you see the I Love Sona sign.",
+                "Continue straight along the pavement near the I Love Sona sign.",
+                "Walk straight past the Green Building.",
+                "After passing the Green Building, you will reach the Department of Information Technology, where the registration desk is located.",
+                "Take the Right cooridoor, where you can find LH503, LH504."
+            ],
+            "Fun-A-Than": [
+                "Go straight to the security cabin, pass through the security cabin.",
+                "Take a right, use the I LOVE SONA pavement and continue the path.",
+                "Use the I Love Sona pavement, continue the following path. ",
+                "Pass the Green Building, continue the straight path.",
+                "On your Left you can find the Department of IT, move to the First Floor.",
+                "At First floor take the left corridoor, where you can find LH412, LH413."
+            ]
+        }
+    };
+
+    function updateImage() {
+        let images = currentSubsection ? imageSets[currentSection][currentSubsection] : imageSets[currentSection];
+        let desc = currentSubsection ? descriptions[currentSection][currentSubsection] : descriptions[currentSection];
+
+        document.getElementById("displayedImage").src = images[currentIndex];
+        document.getElementById("imageDescription").innerText = desc[currentIndex] || "No description available.";
+
+        document.getElementById("prevBtn").style.display = (currentIndex === 0) ? "none" : "inline-block";
+        document.getElementById("nextBtn").style.display = (currentIndex === images.length - 1) ? "none" : "inline-block";
+    }
+</script>
+</body>
+</html>
